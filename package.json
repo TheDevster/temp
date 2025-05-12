@@ -1,0 +1,63 @@
+{
+  "name": "adapter-adtran",
+  "version": "1.0.0",
+  "description": "My Moleculer-based microservices project",
+  "scripts": {
+    "local": "moleculer-runner services/**/*.service.js --repl --hot --envfile local.env",
+    "dev": "moleculer-runner services/**/*.service.js NODE_ENV=dev --envfile dev.env",
+    "qa": "moleculer-runner  services/**/*.service.js NODE_ENV=qa --envfile qa.env",
+    "staging": "moleculer-runner services/**/*.service.js NODE_ENV=staging --envfile stag.env",
+    "prod": "moleculer-runner services/**/*.service.js NODE_ENV=prod --envfile prod.env",
+    "start": "moleculer-runner services/**/*.service.js --envfile dev.env",
+    "cli": "moleculer connect NATS",
+    "ci": "jest --watch",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest --coverage",
+    "lint": "eslint services",
+    "dc:up": "docker-compose up --build -d",
+    "dc:logs": "docker-compose logs -f",
+    "dc:down": "docker-compose down",
+    "prettier": "prettier --check **/*.js",
+    "prettier:fix": "prettier --write **/*.js",
+    "coverage": "jest -i --coverage"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "moleculer-repl": "^0.7.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "@aws-sdk/client-ssm": "^3.787.0",
+    "change-case": "^4.1.2",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "dotenv": "^16.4.5",
+    "helper-module": "https://dev-helpermodules.cdgportal.com/srs-helper-module/helper-module-0.1.1.tgz",
+    "lodash": "^4.17.21",
+    "moleculer": "^0.14.26",
+    "moleculer-auto-openapi": "^1.1.6",
+    "moleculer-web": "^0.10.4",
+    "moment": "^2.30.1",
+    "nats": "^2.7.1",
+    "prettier": "^3.3.3",
+    "winston": "^3.15.0",
+    "moleculer-http-client": "^0.4.2"
+  },
+  "engines": {
+    "node": ">= 16.x.x"
+  },
+  "jest": {
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "rootDir": "./services",
+    "roots": [
+      "../test"
+    ]
+  }
+}
